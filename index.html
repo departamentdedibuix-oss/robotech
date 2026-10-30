@@ -194,7 +194,7 @@ body[data-view="arena"] main.wrap{overflow:hidden;padding-block:12px}
 .prm{display:grid;grid-template-columns:minmax(0,1fr) 120px 34px;align-items:center;gap:8px;font-size:13px}
 .prm label{color:var(--muted)}
 .prm input[type=range]{width:100%;accent-color:var(--accent)}
-#paper path[data-part]{cursor:pointer}#paper path.psel{stroke:var(--accent)!important;stroke-width:1.1px;filter:drop-shadow(0 0 1.4px var(--accent))}.hlink{display:flex;gap:4px}.hlink button{flex:1}.prms.pos h4{margin:0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}.part.flash{animation:pflash .9s ease-out}@keyframes pflash{0%{box-shadow:0 0 0 3px var(--accent)}100%{box-shadow:0 0 0 0 transparent}}.galbar{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 10px}.gbtn{display:inline-flex;flex-direction:column;align-items:center;gap:3px;min-width:56px;padding:7px 6px 5px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink);font-size:11px;cursor:pointer}.gbtn:hover{border-color:var(--accent);color:var(--accent)}.gbtn svg{width:20px;height:20px}.prm output{font-family:var(--f-tech);font-size:15px;text-align:right;font-variant-numeric:tabular-nums}
+#paper path[data-part]{cursor:pointer}#paper path.psel{stroke:var(--accent)!important;stroke-width:1.1px;filter:drop-shadow(0 0 1.4px var(--accent))}.hlink{display:flex;gap:4px}.hlink button{flex:1}.dlic{margin-top:14px;font-size:12px;line-height:1.45}.dlic a{color:var(--accent)}.prms.pos h4{margin:0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}.part.flash{animation:pflash .9s ease-out}@keyframes pflash{0%{box-shadow:0 0 0 3px var(--accent)}100%{box-shadow:0 0 0 0 transparent}}.galbar{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 10px}.gbtn{display:inline-flex;flex-direction:column;align-items:center;gap:3px;min-width:56px;padding:7px 6px 5px;border:1px solid var(--line);border-radius:7px;background:var(--panel);color:var(--ink);font-size:11px;cursor:pointer}.gbtn:hover{border-color:var(--accent);color:var(--accent)}.gbtn svg{width:20px;height:20px}.prm output{font-family:var(--f-tech);font-size:15px;text-align:right;font-variant-numeric:tabular-nums}
 .seg{grid-column:2/4;display:flex;flex-wrap:wrap;gap:3px}
 .seg button{border:1px solid var(--line);background:var(--panel2);border-radius:5px;padding:3px 7px;font-size:12px}
 .seg button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
@@ -305,16 +305,16 @@ nav.tabs button b.ic svg{width:11px;height:11px;display:block}
 /* cabecera: ROBO.TECH a la izquierda, botonera centrada en la página e INFOGEOMETRIA a la derecha */
 header.top{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);grid-template-areas:"brand bar ig";align-items:center;column-gap:14px;row-gap:8px}
 header.top>.brand{grid-area:brand;justify-self:start}
-header.top>.ig{grid-area:ig;justify-self:end;display:flex;align-items:center}
-header.top>.ig img{height:38px;width:auto;display:block}
+header.top>.igwrap{grid-area:ig;justify-self:end;display:flex;flex-direction:column;align-items:flex-end;gap:3px}header.top .igwrap>.ig{display:flex;align-items:center}.ccb{font:600 10px/1 var(--f-body);color:var(--muted);text-decoration:none;letter-spacing:.04em;border:1px solid var(--line);border-radius:4px;padding:2px 5px}.ccb b{font-weight:800;border:1.5px solid currentColor;border-radius:50%;padding:0 2px;margin-right:2px}.ccb:hover{color:var(--accent);border-color:var(--accent)}
+header.top .igwrap .ig img{height:38px;width:auto;display:block}
 header.top>.tbar{grid-area:bar;justify-self:center;display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;row-gap:6px;min-width:0;max-width:100%}
 header.top .tbar nav.tabs{order:0;flex:0 1 auto;margin-left:0}
 header.top .tbar .langs,header.top .tbar .hist,header.top .tbar #b-theme{margin-left:0}
 @media (max-width:1900px){nav.tabs button i.x{display:none}}
 @media (max-width:1680px){header.top{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"brand ig" "bar bar"}header.top>.tbar{justify-self:stretch}}
 @media (max-width:1180px){header.top .tbar nav.tabs{flex:1 0 100%;justify-content:center}}
-@media (max-width:860px){header.top .tbar nav.tabs{justify-content:flex-start}header.top .tbar nav.tabs>:first-child{margin-left:auto}header.top .tbar nav.tabs>:last-child{margin-right:auto}header.top>.ig img{height:26px}}
-@media (max-width:560px){header.top>.ig{display:none}header.top{grid-template-areas:"brand brand" "bar bar"}}
+@media (max-width:860px){header.top .tbar nav.tabs{justify-content:flex-start}header.top .tbar nav.tabs>:first-child{margin-left:auto}header.top .tbar nav.tabs>:last-child{margin-right:auto}header.top .igwrap .ig img{height:26px}}
+@media (max-width:560px){header.top>.igwrap{display:none}header.top{grid-template-areas:"brand brand" "bar bar"}}
 
 /* alarma de «no cabe en el DIN-A3» */
 #paperwrap{position:relative}
@@ -361,7 +361,7 @@ header.top .tbar .langs,header.top .tbar .hist,header.top .tbar #b-theme{margin-
   <button type="button" class="btn fs" id="b-theme" aria-pressed="false" title="Modo oscuro (plano azul)"><svg class="sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3.1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3.05 3.05l1.4 1.4M11.55 11.55l1.4 1.4M3.05 12.95l1.4-1.4M11.55 4.45l1.4-1.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><svg class="moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 9.8A5.8 5.8 0 0 1 6.2 2.5a5.8 5.8 0 1 0 7.3 7.3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span class="sr">Modo oscuro</span></button>
   <button type="button" class="btn fs" id="b-fs" aria-pressed="false" title="Pantalla completa"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 5.5v-4h4M10.5 1.5h4v4M14.5 10.5v4h-4M5.5 14.5h-4v-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="sr">Pantalla completa</span></button>
   </div>
-  <a class="ig" href="http://infogeometria.blogspot.com/" target="_blank" rel="noopener" title="INFOGEOMETRIA"><img id="ig-logo" alt="INFOGEOMETRIA"></a>
+  <div class="igwrap"><a class="ig" href="http://infogeometria.blogspot.com/" target="_blank" rel="noopener" title="INFOGEOMETRIA"><img id="ig-logo" alt="INFOGEOMETRIA"></a><a class="ccb" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank" rel="noopener license" title="ROBO.TECH © Pau Carrascosa Salvador · Departament de Dibuix · Licencia Creative Commons BY-NC-SA 4.0"><b>cc</b> BY-NC-SA</a></div>
 </header>
 
 
@@ -377,7 +377,7 @@ header.top .tbar .langs,header.top .tbar .hist,header.top .tbar #b-theme{margin-
         <p class="dnote">Rellénalos una sola vez: aparecen en el cajetín del diseño 2D, del tutorial DIN-A4, de la lámina DIN-A3 y de los planos 3D.</p>
         <div class="dgrid" id="datos-form"></div>
       </div>
-      <div class="dcard"><h3>Así queda el cajetín</h3><div id="datos-caj"></div><button type="button" class="btn pri" data-tab="disena">Empezar el diseño 2D →</button></div>
+      <div class="dcard"><h3>Así queda el cajetín</h3><div id="datos-caj"></div><button type="button" class="btn pri" data-tab="disena">Empezar el diseño 2D →</button><p class="dnote dlic">ROBO.TECH © Pau Carrascosa Salvador · Departament de Dibuix · <a href="http://infogeometria.blogspot.com/" target="_blank" rel="noopener">INFOGEOMETRIA</a>. Obra bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank" rel="noopener license">Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0</a>: se puede usar y compartir citando al autor, sin fines comerciales y con la misma licencia.</p></div>
     </div>
   </section>
   <section id="v-disena" class="view">
@@ -596,6 +596,7 @@ I18N.add({
 I18N.add({ 'Exportar todos': ['Exporta’ls tots', 'Export all'], 'Guarda en un solo archivo todos los robots de Mis diseños': ['Desa en un sol arxiu tots els robots d’Els meus dissenys', 'Saves every robot in My designs to a single file'] });
 I18N.add({ 'Encuadrar el robot': ['Enquadra el robot', 'Frame the robot'], 'Ver la lámina DIN-A3 completa (doble clic con la rueda)': ['Mostra la làmina DIN-A3 completa (doble clic amb la roda)', 'Show the whole A3 sheet (double-click the wheel)'] });
 I18N.add({ 'Abrir un diseño (Mis diseños, archivo o código)': ['Obri un disseny (Els meus dissenys, arxiu o codi)', 'Open a design (My designs, file or code)'], 'Abrir diseño': ['Obri el disseny', 'Open design'] });
+I18N.add({ 'Obra bajo licencia': ['Obra amb llicència', 'Licensed under'], 'Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0': ['Creative Commons Reconeixement-NoComercial-CompartirIgual 4.0', 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0'], ': se puede usar y compartir citando al autor, sin fines comerciales y con la misma licencia.': [': es pot usar i compartir citant l’autor, sense finalitats comercials i amb la mateixa llicència.', ': it may be used and shared with credit to the author, for non-commercial purposes and under the same licence.'] });
 
 /* ===== Traducciones de la interfaz dinámica (app.js, engine.js, solid.js) ===== */
 I18N.add({
@@ -3057,7 +3058,7 @@ function pageFrame(i, N, meta, code, body, first, head) {
   let s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 297" width="210mm" height="297mm" font-family="${SHEET_FONT}"><rect width="210" height="297" fill="#fff"/><rect x="10" y="10" width="190" height="277" fill="none" stroke="#111" stroke-width="0.35"/>`;
   if (first) s += `<defs><linearGradient id="hb" x1="0" x2="1"><stop offset="0" stop-color="#8A9097"/><stop offset="1" stop-color="#C9CDD1"/></linearGradient></defs><rect x="16" y="15" width="178" height="24" fill="url(#hb)"/><text x="20" y="27" font-family="${HEAD_FONT}" font-size="9.4" fill="#fff" letter-spacing="0.25">${H1}</text><text x="20" y="35.6" font-family="${HEAD_FONT}" font-size="5.6" fill="#fff">${H2}</text>`;
   else s += `<text x="18" y="16.5" font-size="3" fill="#666">${esc([meta.titulo, meta.alumno].filter(Boolean).join('  ·  '))}</text>`;
-  s += body + `<text x="18" y="283" font-size="2.7" fill="#333">http://infogeometria.blogspot.com/</text><text x="105" y="283" font-size="2.7" text-anchor="middle" fill="#333">${i + 1} / ${N}</text>`;
+  s += body + `<text x="18" y="283" font-size="2.7" fill="#333">http://infogeometria.blogspot.com/</text><text x="18" y="286.2" font-size="2.1" fill="#666">© Pau Carrascosa Salvador · Departament de Dibuix · CC BY-NC-SA 4.0</text><text x="105" y="283" font-size="2.7" text-anchor="middle" fill="#333">${i + 1} / ${N}</text>`;
   return s + logoSVG(194, 284.5) + '</svg>';
 }
 function resultAxes(R, sc) {
@@ -4559,10 +4560,11 @@ function randomizePart(id) {
 }
 
 /* ---------- estado ---------- */
-let S = LS.get('robotgeo.draft'); try { if (!S || !S.parts || !S.meta) throw 0; build(S); } catch (e) { S = exampleState(0); }
+const DEF_EX = Math.max(0, EXAMPLES.findIndex(e => e[0] === 'Titanix')); // robot que aparece la primera vez que se abre la app
+let S = LS.get('robotgeo.draft'); try { if (!S || !S.parts || !S.meta) throw 0; build(S); } catch (e) { S = exampleState(DEF_EX); }
 // la fecha del cajetín es la del día en que se edita, salvo que se haya escrito a mano
 if (!S.meta.fechaFija) S.meta.fecha = today();
-let R = build(S); const UNDO = []; let openPart = '__ex1', view = 'disena', colorMode = false, palIdx = 0;
+let R = build(S); const UNDO = []; let openPart = '__ex' + ((EXAMPLES[DEF_EX] || [])[2] || 1), view = 'disena', colorMode = false, palIdx = 0;
 const A3opt = Object.assign({ puntos: true, eje: true, cotas: false, color: false }, LS.get('robotgeo.a3') || {}); delete A3opt.blank;
 const REDO = [];
 let DIRTY = false; // hay cambios sin guardar ni exportar
